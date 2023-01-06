@@ -72,7 +72,7 @@ public class GameFeaturePackerEditor : ModuleRules
 		{
 			"MOD_NAME=TEXT(\"GameFeaturePacker\")",
 			"MOD_VERSION=1.0",
-			"IS_INTERNAL_MODE=true"
+			"IS_INTERNAL_MODE=false"
 		});
 	}
 }
