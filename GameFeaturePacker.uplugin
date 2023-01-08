@@ -29,7 +29,7 @@
 		{
 			"Name": "GameFeaturePackerEditor",
 			"Type": "Editor",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "PostDefault"
 		}
 	]
 }
