@@ -31,9 +31,10 @@ bool UGameFeatureProxy::DoExport()
 			{
 				PlatformExternAssets.TargetPlatform = ETargetPlatform::AllPlatforms;
 				FExternFileInfo FeaturePlugin;
-				
-				if(UFlibPatchParserHelper::GetPluginPakPathByName(PatchSettings->VersionId,FeaturePlugin.FilePath.FilePath,FeaturePlugin.MountPath))
+				FString TmpFilePath;
+				if(UFlibPatchParserHelper::GetPluginPakPathByName(PatchSettings->VersionId,TmpFilePath,FeaturePlugin.MountPath))
 				{
+					FeaturePlugin.SetFilePath(TmpFilePath);
 					FeaturePlugin.Type = EPatchAssetType::NEW;
 					PlatformExternAssets.AddExternFileToPak.Add(FeaturePlugin);
 
