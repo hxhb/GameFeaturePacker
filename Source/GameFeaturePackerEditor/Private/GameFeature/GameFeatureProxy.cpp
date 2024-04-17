@@ -73,7 +73,7 @@ bool UGameFeatureProxy::DoExport()
 			PatchSettings->EncryptSettings = GetSettingObject()->EncryptSettings;
 			PatchSettings->PakTargetPlatforms.Append(GetSettingObject()->TargetPlatforms);
 			PatchSettings->SavePath.Path = GetSettingObject()->GetSaveAbsPath();
-			PatchSettings->bStorageNewRelease = false;
+			PatchSettings->GetStorageOptions().bNewRelease = false;
 			PatchSettings->bStorageConfig = true;
 		}
 		PatcherProxy = NewObject<UPatcherProxy>();
