@@ -52,19 +52,19 @@ public:
 	 * shader code gets saved inline inside material assets
 	 * bShareMaterialShaderCode as false
 	 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Base")
+	UPROPERTY(EditAnywhere, Category="Base")
 	bool bCookPatchAssets = true;
 	
-	// UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Base", meta=(EditCondition = "bCookPatchAssets"))
+	// UPROPERTY(EditAnywhere, Category="Base", meta=(EditCondition = "bCookPatchAssets"))
 	FCookShaderOptions CookShaderOptions;
-	// UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Base", meta=(EditCondition = "bCookPatchAssets"))
+	// UPROPERTY(EditAnywhere, Category="Base", meta=(EditCondition = "bCookPatchAssets"))
 	FAssetRegistryOptions SerializeAssetRegistryOptions;
 
 	// support UE4.26 later
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Base")
+	UPROPERTY(EditAnywhere, Category="Base")
 	FIoStoreSettings IoStoreSettings;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Base")
+	UPROPERTY(EditAnywhere, Category = "Base")
 	FPakEncryptSettings EncryptSettings;
 	
 	UPROPERTY(EditAnywhere, Category="Base")
