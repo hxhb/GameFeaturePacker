@@ -1,9 +1,10 @@
 #pragma once
 #include "ThreadUtils/FThreadUtils.hpp"
 #include "FGameFeaturePackagerSettings.h"
+#include "CreatePatch/HotPatcherProxyBase.h"
+#include "CreatePatch/PatcherProxy.h"
 // engine header
 #include "Templates/SharedPointer.h"
-#include "CreatePatch/HotPatcherProxyBase.h"
 #include "GameFeatureProxy.generated.h"
 
 
@@ -17,7 +18,7 @@ public:
 
 protected:
     UPROPERTY()
-    UPatcherProxy* PatcherProxy;
+    UPatcherProxy* PatcherProxy = nullptr;
 private:
     TSharedPtr<FExportPatchSettings> PatchSettings;
     TSharedPtr<FThreadWorker> ThreadWorker;
