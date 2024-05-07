@@ -28,7 +28,7 @@ public:
 	 *
 	 * @param InArgs The Slate argument list.
 	 */
-	void Construct(	const FArguments& InArgs,TSharedPtr<FHotPatcherContextBase> InCreateModel);
+	void Construct(	const FArguments& InArgs,TSharedPtr<FHotPatcherModContextBase> InCreateModel);
 
 public:
 	virtual void ImportConfig();

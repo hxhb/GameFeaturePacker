@@ -21,7 +21,7 @@
 #define LOCTEXT_NAMESPACE "SHotPatcherGameFeaturePackager"
 
 void SGameFeaturePackageWidget::Construct(const FArguments& InArgs,
-	TSharedPtr<FHotPatcherContextBase> InCreateModel)
+	TSharedPtr<FHotPatcherModContextBase> InCreateModel)
 {
 	GameFeaturePackagerSettings = MakeShareable(new FGameFeaturePackagerSettings);
 	CreateExportFilterListView();
