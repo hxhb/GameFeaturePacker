@@ -14,7 +14,7 @@
  * Implements the cooked platforms panel.
  */
 class SGameFeaturePackageWidget
-	: public SHotPatcherWidgetBase
+	: public SHotPatcherWidgetInterface
 {
 public:
 
@@ -31,11 +31,11 @@ public:
 	void Construct(	const FArguments& InArgs,TSharedPtr<FHotPatcherModContextBase> InCreateModel);
 
 public:
-	virtual void ImportConfig();
-	virtual void ImportProjectConfig(){};
-	virtual void ExportConfig()const;
-	virtual void ResetConfig();
-	virtual void DoGenerate();
+	virtual void ImportConfig()override;
+	virtual void ImportProjectConfig()override{};
+	virtual void ExportConfig()const override;
+	virtual void ResetConfig() override;
+	virtual void DoGenerate() override;
 	
 	virtual FGameFeaturePackagerSettings* GetConfigSettings() override{return GameFeaturePackagerSettings.Get();};
 	virtual FGameFeaturePackagerSettings* GetConfigSettings()const {return GameFeaturePackagerSettings.Get();};
@@ -49,6 +49,8 @@ protected:
 	FReply DoGameFeaturePackager();
 	void FeaturePackager();
 
+	// for context
+	void SetContext(TSharedPtr<FHotPatcherModContextBase> InContext){ mContext = InContext;}
 private:
 
 	// TSharedPtr<FHotPatcherCreatePatchModel> mCreatePatchModel;
@@ -56,5 +58,6 @@ private:
 	/** Settings view ui element ptr */
 	TSharedPtr<IStructureDetailsView> SettingsView;
 	TSharedPtr<FGameFeaturePackagerSettings> GameFeaturePackagerSettings;
+	TSharedPtr<FHotPatcherModContextBase> mContext;
 };
 

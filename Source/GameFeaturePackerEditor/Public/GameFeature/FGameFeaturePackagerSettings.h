@@ -21,7 +21,7 @@
 
 /** Singleton wrapper to allow for using the setting structure in SSettingsView */
 USTRUCT(BlueprintType)
-struct GAMEFEATUREPACKEREDITOR_API FGameFeaturePackagerSettings:public FHotPatcherSettingBase
+struct GAMEFEATUREPACKEREDITOR_API FGameFeaturePackagerSettings:public FHotPatcherSettingGeneral
 {
 	GENERATED_USTRUCT_BODY()
 public:
@@ -39,35 +39,35 @@ public:
 		return &StaticIns;
 	}
 	
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category="Base")
 	TArray<FString> FeatureNames;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, Category="Base")
 	bool bAutoLoadFeaturePlugin = true;
 	// Config/ Script/ etc.
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, Category="Base")
 	TArray<FString> NonContentDirs;
 	/*
 	 * Cook Asset in current patch
 	 * shader code gets saved inline inside material assets
 	 * bShareMaterialShaderCode as false
 	 */
-	UPROPERTY(EditAnywhere, Category="Base")
+	UPROPERTY(EditAnywhere, Category="Cooker")
 	bool bCookPatchAssets = true;
 	
-	// UPROPERTY(EditAnywhere, Category="Base", meta=(EditCondition = "bCookPatchAssets"))
+	UPROPERTY(EditAnywhere, Category="Cooker", meta=(EditCondition = "bCookPatchAssets"))
 	FCookShaderOptions CookShaderOptions;
-	// UPROPERTY(EditAnywhere, Category="Base", meta=(EditCondition = "bCookPatchAssets"))
+	UPROPERTY(EditAnywhere, Category="Cooker", meta=(EditCondition = "bCookPatchAssets"))
 	FAssetRegistryOptions SerializeAssetRegistryOptions;
 
 	// support UE4.26 later
-	UPROPERTY(EditAnywhere, Category="Base")
+	UPROPERTY(EditAnywhere, Category="Pak")
 	FIoStoreSettings IoStoreSettings;
 
-	UPROPERTY(EditAnywhere, Category = "Base")
+	UPROPERTY(EditAnywhere, Category = "Pak")
 	FPakEncryptSettings EncryptSettings;
 	
-	UPROPERTY(EditAnywhere, Category="Base")
+	UPROPERTY(EditAnywhere, Category="Pak")
 	TArray<ETargetPlatform> TargetPlatforms;
 };
 
