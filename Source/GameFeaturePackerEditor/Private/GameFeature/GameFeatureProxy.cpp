@@ -59,9 +59,9 @@ bool UGameFeatureProxy::DoExport()
 			PatchSettings->bCookPatchAssets = GetSettingObject()->bCookPatchAssets;
 			
 			{
-				PatchSettings->SerializeAssetRegistryOptions = GetSettingObject()->SerializeAssetRegistryOptions;
-				PatchSettings->SerializeAssetRegistryOptions.AssetRegistryMountPointRegular = FString::Printf(TEXT("%s[%s]"),AS_PLUGINDIR_MARK,*FeatureName);
-				PatchSettings->SerializeAssetRegistryOptions.AssetRegistryNameRegular = FString::Printf(TEXT("AssetRegistry.bin"));
+				PatchSettings->AssetRegistryOptions = GetSettingObject()->SerializeAssetRegistryOptions;
+				PatchSettings->AssetRegistryOptions.MountPointRegular = FString::Printf(TEXT("%s[%s]"),AS_PLUGINDIR_MARK,*FeatureName);
+				PatchSettings->AssetRegistryOptions.NameRegular = FString::Printf(TEXT("AssetRegistry.bin"));
 			}
 			{
 				PatchSettings->CookShaderOptions = GetSettingObject()->CookShaderOptions;
