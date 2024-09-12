@@ -35,7 +35,7 @@ bool UGameFeatureProxy::DoExport()
 				if(UFlibPatchParserHelper::GetPluginPakPathByName(PatchSettings->VersionId,TmpFilePath,FeaturePlugin.MountPath))
 				{
 					FeaturePlugin.SetFilePath(TmpFilePath);
-					FeaturePlugin.Type = EPatchAssetType::NEW;
+					FeaturePlugin.SetPatchType(EPatchAssetType::NEW);
 					PlatformExternAssets.AddExternFileToPak.Add(FeaturePlugin);
 
 					TSharedPtr<IPlugin> Plugin = IPluginManager::Get().FindPlugin(FeatureName);
