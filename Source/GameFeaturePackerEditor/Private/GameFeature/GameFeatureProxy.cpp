@@ -80,7 +80,7 @@ bool UGameFeatureProxy::DoExport()
 		PatcherProxy->AddToRoot();
 		PatcherProxy->Init(PatchSettings.Get());
 		PatcherProxy->DoExport();
-
+		PatcherProxy->Shutdown();
 	}
 	return Super::DoExport();
 }
